@@ -7,8 +7,14 @@ import {
 
 import styles from './index.style'
 
-export default () => (
+const HelloWorld = () => (
   <SafeAreaView style={ styles.flexContainer }>
     <Text style={ styles.flexText }>Hello World</Text>
   </SafeAreaView>
 )
+
+HelloWorld.navigationOptions = {
+  title: 'HelloWorld'
+}
+
+export default HelloWorld
