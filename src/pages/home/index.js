@@ -1,6 +1,7 @@
 import React, {
   useCallback
 } from 'react'
+import { connect } from '../../utils/dva'
 
 import {
   SafeAreaView,
@@ -8,19 +9,36 @@ import {
   Button
 } from 'react-native'
 
+import {
+  NavigationActions
+} from '../../utils/dva'
+
 import styles from '../helloWorld/index.style'
 
 const Home = ({
-  navigation
+  navigation,
+  dispatch,
+  count
 }) => {
-
   const navigationTo = useCallback((payload) => {
-    navigation.navigate(payload)
+    dispatch(NavigationActions.navigate({ routeName: payload }))
   }, [])
+
+  const countAction = useCallback((type) => {
+    let copyCount = count
+    if (type === 'add') {
+      copyCount = copyCount + 1
+    } else {
+      copyCount = copyCount - 1
+    }
+    dispatch({ type: 'counter/updateState', payload: { count: copyCount } })
+  }, [ count ])
 
   return (
     <SafeAreaView style={ styles.flexContainer }>
-      <Text style={ styles.flexText }>Home</Text>
+      <Text style={ styles.flexText }>Home: count({ count })</Text>
+      <Button title='+' onPress={ () => countAction('add') }/>
+      <Button title='-' onPress={ () => countAction('reduce') }/>
       <Button onPress={ () => navigationTo('User') } title='go to user' />
       <Button onPress={ () => navigationTo('HelloWorld') } title='go to helloworld' />
       <Button onPress={ () => navigationTo('LoginNavigator') } title='go to login' />
@@ -49,4 +67,6 @@ const Home = ({
 //   }
 // }
 
-export default Home
+export default connect(state => ({
+  count: state.counter.count
+}))(Home)

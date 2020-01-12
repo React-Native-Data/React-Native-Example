@@ -3,6 +3,13 @@ import React, {
 } from 'react'
 
 import {
+  createReduxContainer,
+  createReactNavigationReduxMiddleware,
+  createNavigationReducer,
+} from 'react-navigation-redux-helpers'
+import { connect } from './utils/dva'
+
+import {
   Text,
   TouchableOpacity,
   View,
@@ -18,10 +25,14 @@ import { createDrawerNavigator } from 'react-navigation-drawer'
 import {
   createBottomTabNavigator
 } from 'react-navigation-tabs'
+
 import {
   Transition
 } from 'react-native-reanimated'
+
+
 import Icon from 'react-native-vector-icons/Entypo'
+
 
 import HomeScreen from './pages/home'
 import UserScreen from './pages/user'
@@ -60,7 +71,7 @@ const BottomNavigator = createBottomTabNavigator(
     tabBarOptions: { // tabbar的一些配置
       activeTintColor: 'purple', 
       inactiveTintColor: 'red',
-      showLabel: false
+      showLabel: false, // 是否展示routeName
     },
     /**
      * tabBarComponent: RE // 自定义Tabbar
@@ -202,13 +213,19 @@ const AppContainer = createAppContainer(
   )
 )
 
-export default () => {
+export const AppContainerReducer = createNavigationReducer(AppContainer)
+export const AppContainerRouterMiddleWare = createReactNavigationReduxMiddleware(state => state.router)
+const App = createReduxContainer(AppContainer)
 
-  const onNavigationStateChange = useCallback((prevState, newState, action) => {
-    console.log(prevState, newState, action)
-  }, [])
+const Router = ({
+  dispatch,
+  router
+}) => {
 
-  return <AppContainer 
-            onNavigationStateChange={ onNavigationStateChange }
+  return <App 
+            dispatch={ dispatch }
+            state={ router }
           />
 }
+
+export default connect(state => ({ router: state.router }))(Router)
