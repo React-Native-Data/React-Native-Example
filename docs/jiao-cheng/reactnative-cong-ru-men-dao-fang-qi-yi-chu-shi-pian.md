@@ -20,7 +20,7 @@
 
 > 如果以上均顺利完成的话，那么以`IOS`为例, 首次启动之后为以下的样子
 
-![IOS &#x5B98;&#x65B9;demo](https://mmbiz.qpic.cn/mmbiz_png/ELZpPficmGibjgu1icoD0J3BN4nIPHFuMXaJWwibvhwTRWoKy6Lv6wSgDTa8vYeZVLrDlVQjbCWTia8vrCXEYja7HfQ/0?wx_fmt=png)IOS 官方demo
+![IOS &#x5B98;&#x65B9;demo](https://mmbiz.qpic.cn/mmbiz_png/ELZpPficmGibjgu1icoD0J3BN4nIPHFuMXaJWwibvhwTRWoKy6Lv6wSgDTa8vYeZVLrDlVQjbCWTia8vrCXEYja7HfQ/0?wx_fmt=png)
 
 ### `hello world`
 
@@ -85,7 +85,9 @@ import {name as appName} from './app.json';
 + AppRegistry.registerComponent(appName, () => HelloWorld);
 ```
 
-* 成品如下:  ![hello world](https://mmbiz.qpic.cn/mmbiz_png/ELZpPficmGibjgu1icoD0J3BN4nIPHFuMXaYDZJgazUXl3mrhRpmOq6BTGU44y7jYFibnoU1hhWIh1j9sFXgDia6oyA/0?wx_fmt=png)
+* 成品如下:  
+
+![hello world](https://mmbiz.qpic.cn/mmbiz_png/ELZpPficmGibjgu1icoD0J3BN4nIPHFuMXaYDZJgazUXl3mrhRpmOq6BTGU44y7jYFibnoU1hhWIh1j9sFXgDia6oyA/0?wx_fmt=png)
 
 ### 让页面动起来
 
@@ -257,7 +259,9 @@ import {name as appName} from './app.json';
 + AppRegistry.registerComponent(appName, () => AppContainer);
 ```
 
-* 结果  ![with react-navigation](https://mmbiz.qpic.cn/mmbiz_gif/ELZpPficmGibhibxepFOg9yq5hHBiaIMNricQyuic3gz2uU6bVicIXlibrclXGSkudY0szib40OkeuTiawWic7juV9nVgexqw/0?wx_fmt=gif)
+* 结果  
+
+![with react-navigation](https://mmbiz.qpic.cn/mmbiz_gif/ELZpPficmGibhibxepFOg9yq5hHBiaIMNricQyuic3gz2uU6bVicIXlibrclXGSkudY0szib40OkeuTiawWic7juV9nVgexqw/0?wx_fmt=gif)
 
 ### 小结
 
