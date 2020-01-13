@@ -1,4 +1,4 @@
 # Table of contents
 
-* [一些废话](README.md)
+* [介绍](README.md)
 
